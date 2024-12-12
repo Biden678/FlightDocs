@@ -60,15 +60,15 @@ namespace FlightDocs.Controllers
 
         public IActionResult Authenticate([FromBody] LoginDTO loginDTO)
         {
-            var token = _asv.Login(loginDTO); // Login trả về chuỗi hoặc null
+            var token = _asv.Login(loginDTO); 
 
-            if (!string.IsNullOrEmpty(token)) // Kiểm tra nếu token không null hoặc rỗng
+            if (!string.IsNullOrEmpty(token)) 
             {
-                return Ok(new { Token = token }); // Trả về token nếu xác thực thành công
+                return Ok(new { Token = token }); 
             }
             else
             {
-                return Unauthorized(new { Message = "Invalid email or password" }); // Mã trạng thái 401
+                return Unauthorized(new { Message = "Invalid email or password" }); 
             }
         }
 

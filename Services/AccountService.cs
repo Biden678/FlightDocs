@@ -77,7 +77,7 @@ namespace FlightDocs.Services
         }
         public static bool VerifiedPassword(string enterPassword, string storeHash)
         {
-            return BCrypt.Net.BCrypt.EnhancedVerify(enterPassword, storeHash);
+            return BCrypt.Net.BCrypt.Verify(enterPassword, storeHash);
         }
     }
 }
