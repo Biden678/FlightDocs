@@ -39,6 +39,7 @@ namespace FlightDocs
                 options.UseSqlServer(builder.Configuration.GetConnectionString("db"));
             });
             builder.Services.AddScoped<IAccount, AccountService>();
+            builder.Services.AddScoped<IDocument, DocumentService>();
 
 
             var app = builder.Build();

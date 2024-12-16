@@ -4,6 +4,7 @@ using FlightDocs.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightDocs.Migrations
 {
     [DbContext(typeof(DB))]
-    partial class DBModelSnapshot : ModelSnapshot
+    [Migration("20241216012358_fd2")]
+    partial class fd2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,13 +125,13 @@ namespace FlightDocs.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("type")
+                    b.Property<string>("nameGroup")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DocumentTypes");
+                    b.ToTable("DocumentType");
                 });
 
             modelBuilder.Entity("FlightDocs.Models.DocumentTypePermission", b =>
@@ -150,7 +152,7 @@ namespace FlightDocs.Migrations
 
                     b.HasIndex("PermissionId");
 
-                    b.ToTable("TypePermissions");
+                    b.ToTable("DocumentTypePermission");
                 });
 
             modelBuilder.Entity("FlightDocs.Models.Flight", b =>

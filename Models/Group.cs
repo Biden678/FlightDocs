@@ -12,5 +12,7 @@ namespace FlightDocs.Models
         public string nameGroup { get; set; } = string.Empty;
 
         public List <Account> ? Accounts { get; set; }
+        public List<Permission>? Permission { get; set; }
+
     }
 }

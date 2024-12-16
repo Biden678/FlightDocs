@@ -42,6 +42,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "AddDocumentType",
+    "RelativePath": "api/Document/add-type",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FlightDocs.DTOs.DocumentTypeDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FlightDocs.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
