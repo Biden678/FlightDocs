@@ -2,7 +2,6 @@
 using FlightDocs.Models;
 using FlightDocs.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Principal;
 
 namespace FlightDocs.Services
 {
@@ -44,7 +43,7 @@ namespace FlightDocs.Services
 
         public async Task<IEnumerable<Account>> getAllAcount()
         {
-            var account = await _db.Accounts.ToListAsync();
+            var account = await _db.Accounts.Include(g=>g.Group).ToListAsync();
             return account;
         }
 

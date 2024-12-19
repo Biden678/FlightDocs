@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace FlightDocs.Models
 {
@@ -10,6 +11,7 @@ namespace FlightDocs.Models
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
+        [JsonIgnore]
         public Group ? Group { get; set; }
         public List<FlightAssignment> ? FlightAssignment { get; set; }
         public Guid groupId { get; set; }

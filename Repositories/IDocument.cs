@@ -5,7 +5,8 @@ namespace FlightDocs.Repositories
 {
     public interface IDocument
     {
-        Task<DocumentType> AddType(DocumentType type, List<Guid> permissionIds);
+        Task<DocumentType> AddType(DocumentType type);
         //
+        Task<DocumentType> addTypePermission(PermissionTypeDTO dto);
     }
 }

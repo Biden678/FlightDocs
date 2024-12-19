@@ -1,4 +1,5 @@
-﻿using FlightDocs.Models;
+﻿using FlightDocs.DTOs;
+using FlightDocs.Models;
 using FlightDocs.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,47 +13,55 @@ namespace FlightDocs.Services
             {
                 _db = db;
             }
-        public async Task<DocumentType> AddType(DocumentType type, List<Guid> permissionIds)
+
+  
+        //public  async Task<DocumentTypePermission> addPermissison(PermissionTypeDTO dto)
+        //{
+        //    try
+        //    {
+          
+        //        var typePermisison = new DocumentTypePermission
+        //        {
+        //            Id = Guid.NewGuid(),
+        //            DocumentTypeId = dto.typeId,
+        //            PermissionId = dto.permissionId
+        //        };
+
+        //        await _db.TypePermissions.AddAsync(typePermisison);
+        //        await _db.SaveChangesAsync();
+        //        return typePermisison;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log lỗi để xem nguyên nhân
+        //        throw new Exception($"Error adding permission: {ex.Message}", ex);
+        //    }
+        //}
+
+        public async Task<DocumentType> AddType(DocumentType type)
         {
-            // Tạo mới DocumentType với Id mới
-            //, List<Guid> permissionIds
             type.Id = Guid.NewGuid();
             await _db.DocumentTypes.AddAsync(type);
-
-            // Kiểm tra xem permissionIds có ít nhất 2 phần tử không
-            if (permissionIds.Count >= 2)
-            {
-                // Lấy 2 PermissionId từ permissionIds và tạo các bản ghi mới trong bảng DocumentTypePermission
-                var documentTypePermissions = new List<DocumentTypePermission>
-        {
-            new DocumentTypePermission
-            {
-                Id = Guid.NewGuid(),
-                DocumentTypeId = type.Id,
-                PermissionId = permissionIds[0] // PermissionId đầu tiên
-            },
-            new DocumentTypePermission
-            {
-                Id = Guid.NewGuid(),
-                DocumentTypeId = type.Id,
-                PermissionId = permissionIds[1] // PermissionId thứ hai
-            }
-        };
-
-                // Thêm các bản ghi vào bảng DocumentTypePermission
-                await _db.TypePermissions.AddRangeAsync(documentTypePermissions);
-            }
-            else
-            {
-                throw new ArgumentException("At least two permission IDs are required.");
-            }
-
-            // Lưu các thay đổi vào DB
             await _db.SaveChangesAsync();
-
             return type;
         }
 
+        public async Task<DocumentType> addTypePermission(PermissionTypeDTO dto)
+        {
+            var dtype = await _db.DocumentTypes
+                 .Where(t => t.Id.ToString().ToLower() == dto.typeId.ToString().ToLower())
+                 .Include(p => p.Permission)
+                 .FirstOrDefaultAsync();
+            if (dtype == null)
+                return null;
 
+            var permission = await _db.Permissions.FindAsync(dto.permissionId);
+            if (permission == null)
+                return null;
+            dtype?.Permission?.Add(permission);
+            await _db.SaveChangesAsync();
+            return dtype;
+                                              
+        }
     }
 }

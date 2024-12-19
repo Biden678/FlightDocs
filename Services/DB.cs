@@ -16,22 +16,21 @@ namespace FlightDocs.Services
 
         public DbSet<DocumentType> DocumentTypes { get; set; }
 
-        public DbSet<DocumentTypePermission> TypePermissions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DocumentTypePermission>()
-                .HasKey(dtp => dtp.Id);
+            //modelBuilder.Entity<DocumentTypePermission>()
+            //    .HasKey(dtp => dtp.Id);
 
-            modelBuilder.Entity<DocumentTypePermission>()
-                .HasOne(dtp => dtp.DocumentType)
-                .WithMany(dt => dt.DocumentTypePermission)
-                .HasForeignKey(dtp => dtp.DocumentTypeId);
+            //modelBuilder.Entity<DocumentTypePermission>()
+            //    .HasOne(dtp => dtp.DocumentType)
+            //    .WithMany(dt => dt.DocumentTypePermission)
+            //    .HasForeignKey(dtp => dtp.DocumentTypeId);
 
-            modelBuilder.Entity<DocumentTypePermission>()
-                .HasOne(dtp => dtp.Permission)
-                .WithMany(p => p.DocumentTypePermission)
-                .HasForeignKey(dtp => dtp.PermissionId);
-            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<DocumentTypePermission>()
+            //    .HasOne(dtp => dtp.Permission)
+            //    .WithMany(p => p.DocumentTypePermission)
+            //    .HasForeignKey(dtp => dtp.PermissionId);
+            //base.OnModelCreating(modelBuilder);
             //
             modelBuilder.Entity<FlightAssignment>()
                .HasKey(dtp => dtp.Id);

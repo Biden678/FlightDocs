@@ -51,7 +51,23 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "FlightDocs.DTOs.DocumentTypeDTO",
+        "Type": "FlightDocs.Models.DocumentType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "AddTypePermisison",
+    "RelativePath": "api/Document/type-addpermission",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FlightDocs.DTOs.PermissionTypeDTO",
         "IsRequired": true
       }
     ],
