@@ -8,5 +8,7 @@ namespace FlightDocs.Repositories
         Task<DocumentType> AddType(DocumentType type);
         //
         Task<DocumentType> addTypePermission(PermissionTypeDTO dto);
+
+        Task<Document> addDocument(DocumentDTO dto);
     }
 }

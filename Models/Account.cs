@@ -13,7 +13,7 @@ namespace FlightDocs.Models
         public string Phone { get; set; } = string.Empty;
         [JsonIgnore]
         public Group ? Group { get; set; }
-        public List<FlightAssignment> ? FlightAssignment { get; set; }
         public Guid groupId { get; set; }
+        public List<Flight>? Flight { get; set; }
     }
 }

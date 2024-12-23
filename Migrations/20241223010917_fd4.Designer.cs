@@ -4,6 +4,7 @@ using FlightDocs.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightDocs.Migrations
 {
     [DbContext(typeof(DB))]
-    partial class DBModelSnapshot : ModelSnapshot
+    [Migration("20241223010917_fd4")]
+    partial class fd4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,36 +109,6 @@ namespace FlightDocs.Migrations
                     b.HasIndex("flightNo");
 
                     b.ToTable("Documents");
-                });
-
-            modelBuilder.Entity("FlightDocs.Models.DocumentDetail", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DocId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("status")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("updatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("updatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("version")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DocId")
-                        .IsUnique();
-
-                    b.ToTable("DocumentDetails");
                 });
 
             modelBuilder.Entity("FlightDocs.Models.DocumentType", b =>
@@ -281,17 +253,6 @@ namespace FlightDocs.Migrations
                     b.Navigation("Type");
                 });
 
-            modelBuilder.Entity("FlightDocs.Models.DocumentDetail", b =>
-                {
-                    b.HasOne("FlightDocs.Models.Document", "Document")
-                        .WithOne("DocumentDetail")
-                        .HasForeignKey("FlightDocs.Models.DocumentDetail", "DocId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Document");
-                });
-
             modelBuilder.Entity("GroupPermission", b =>
                 {
                     b.HasOne("FlightDocs.Models.Group", null)
@@ -305,11 +266,6 @@ namespace FlightDocs.Migrations
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FlightDocs.Models.Document", b =>
-                {
-                    b.Navigation("DocumentDetail");
                 });
 
             modelBuilder.Entity("FlightDocs.Models.DocumentType", b =>

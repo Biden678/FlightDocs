@@ -41,34 +41,41 @@ namespace FlightDocs.Controllers
         [HttpPost("type-addpermission")]
         public async Task<IActionResult> AddTypePermisison(PermissionTypeDTO request)
         {
-            //if (request == null)
-            //{
-            //    return BadRequest();
-            //}
+            if (request == null)
+            {
+                return BadRequest();
+            }
 
-            //try
-            //{
-            //    var result = await _dsv.addTypePermission(request);
-            //    return Ok(result);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return StatusCode(500, $"Internal server error: {ex.Message}");
+            try
+            {
+                var result = await _dsv.addTypePermission(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
 
-            //}
-            var dtype = await _db.DocumentTypes
-               .Where(t => t.Id.ToString().ToLower() == request.typeId.ToString().ToLower())
-               .Include(p => p.Permission)
-               .FirstOrDefaultAsync();
-            if (dtype == null)
-                return NotFound();
+            }
+           
+        }
+        [HttpPost("add-doc")]
+        public async Task<IActionResult> AddDocument(DocumentDTO request) {
 
-            var permission = await _db.Permissions.FindAsync(request.permissionId);
-            if (permission == null)
-                return NotFound();
-            dtype?.Permission?.Add(permission);
-            await _db.SaveChangesAsync();
-            return Ok(dtype);
+            if (request == null)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                var result = await _dsv.addDocument(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
+            }
+
         }
 
 

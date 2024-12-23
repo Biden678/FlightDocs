@@ -43,6 +43,22 @@
   },
   {
     "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "AddDocument",
+    "RelativePath": "api/Document/add-doc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FlightDocs.DTOs.DocumentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
     "Method": "AddDocumentType",
     "RelativePath": "api/Document/add-type",
     "HttpMethod": "POST",
@@ -68,6 +84,22 @@
       {
         "Name": "request",
         "Type": "FlightDocs.DTOs.PermissionTypeDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.FlightController",
+    "Method": "Add",
+    "RelativePath": "api/Flight",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FlightDocs.DTOs.FlightDTO",
         "IsRequired": true
       }
     ],

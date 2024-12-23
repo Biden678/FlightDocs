@@ -14,29 +14,37 @@ namespace FlightDocs.Services
                 _db = db;
             }
 
-  
-        //public  async Task<DocumentTypePermission> addPermissison(PermissionTypeDTO dto)
-        //{
-        //    try
-        //    {
-          
-        //        var typePermisison = new DocumentTypePermission
-        //        {
-        //            Id = Guid.NewGuid(),
-        //            DocumentTypeId = dto.typeId,
-        //            PermissionId = dto.permissionId
-        //        };
 
-        //        await _db.TypePermissions.AddAsync(typePermisison);
-        //        await _db.SaveChangesAsync();
-        //        return typePermisison;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Log lỗi để xem nguyên nhân
-        //        throw new Exception($"Error adding permission: {ex.Message}", ex);
-        //    }
-        //}
+
+        public async Task<Document> addDocument(DocumentDTO dto)
+        {
+            var newDoc = new Document
+            {
+                Id = Guid.NewGuid(),
+                Name = dto.Name,
+                TypeId = dto.TypeId,
+                flightNo = dto.flightNo
+            };
+            await _db.Documents.AddAsync(newDoc);
+            await _db.SaveChangesAsync();
+
+            //if (newDoc != null)
+            //{
+            //    var newDetail = new DocumentDetail
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        DocId = newDoc.Id,
+            //        updatedBy = dto.updatedBy,
+            //        updatedAt = dto.updatedAt,
+            //        status = 0,
+            //        version = 1.0,
+            //    };
+            //    await _db.DocumentDetails.AddAsync(newDetail);
+            //    await _db.SaveChangesAsync();
+            //} else { return null; }
+            return newDoc;
+        }
+
 
         public async Task<DocumentType> AddType(DocumentType type)
         {
@@ -61,7 +69,12 @@ namespace FlightDocs.Services
             dtype?.Permission?.Add(permission);
             await _db.SaveChangesAsync();
             return dtype;
-                                              
+
         }
+
+
+
+
+
     }
 }

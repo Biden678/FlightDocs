@@ -40,7 +40,7 @@ namespace FlightDocs
             });
             builder.Services.AddScoped<IAccount, AccountService>();
             builder.Services.AddScoped<IDocument, DocumentService>();
-
+            builder.Services.AddScoped<IFlight, FlightService>();
 
             var app = builder.Build();
 
