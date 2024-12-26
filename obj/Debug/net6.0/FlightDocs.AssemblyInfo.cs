@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlightDocs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa9921e63b788d040b867bfef074e06096b26dca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ba8c9eabe15177ed81a02e1a33fbd8ff44ba0fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlightDocs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlightDocs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -23,10 +23,18 @@ namespace FlightDocs.Services
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Document>()
+          .HasOne(d => d.DocumentDetail)
+          .WithOne(dd => dd.Document)
+          .HasForeignKey<DocumentDetail>(dd => dd.DocId);
 
-        .HasOne(d => d.DocumentDetail)  // Document là bên chủ
-        .WithOne(dd => dd.Document)    // DocumentDetail là bên phụ thuộc
-        .HasForeignKey<DocumentDetail>(dd => dd.DocId); // Khóa ngoại là DocId trong DocumentDetail
+            // Explicitly configure the relationship between Document and Flight
+            modelBuilder.Entity<Document>()
+                .HasOne(d => d.Flight)
+                .WithMany(f => f.Document)
+                .HasForeignKey(d => d.flightNo)  // Define the foreign key to the Flight entity
+                .HasPrincipalKey(f => f.flightNo);  // Define the principal key (primary key) of the Flight entity
+
+
         }
     }
 }

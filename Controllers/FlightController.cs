@@ -14,7 +14,7 @@ namespace FlightDocs.Controllers
             _fsv = fsv;
         }
 
-        [HttpPost()]
+        [HttpPost("add-flight")]
         public async Task<IActionResult> Add(FlightDTO request)
         {
             if (request == null)

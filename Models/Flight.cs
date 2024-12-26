@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace FlightDocs.Models
 {
@@ -8,7 +9,9 @@ namespace FlightDocs.Models
         public string flightNo { get; set; } = string.Empty;
         public string pointOfLoading { get; set; } = string.Empty;
         public string pointOfUnloading { get; set; } = string.Empty;
-        public DateTime departureDate { get; set; } 
+        public DateTime departureDate { get; set; }
+        [JsonIgnore] 
+        
         public List<Document>? Document { get; set; }
         public List<Account>? Account { get; set; }
     }

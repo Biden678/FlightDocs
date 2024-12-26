@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace FlightDocs.Models
 {
@@ -10,9 +11,11 @@ namespace FlightDocs.Models
         public Guid TypeId { get; set; }
 
         public string flightNo { get; set; } = string.Empty;
-        public DocumentType ? Type { get; set; }
+        [JsonIgnore]
+        public DocumentType? Type { get; set; }
+        [JsonIgnore]
         public DocumentDetail? DocumentDetail { get; set; }
-
-        public Flight ? Flight { get; set; }
+        [JsonIgnore]
+        public Flight? Flight { get; set; }
     }
 }

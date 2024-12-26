@@ -29,7 +29,7 @@ namespace FlightDocs.Controllers
 
             try
             {
-                var result = await _dsv.AddType(request);
+                var result = await _dsv.addType(request);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -59,12 +59,12 @@ namespace FlightDocs.Controllers
            
         }
         [HttpPost("add-doc")]
-        public async Task<IActionResult> AddDocument(DocumentDTO request) {
+        public async Task<IActionResult> AddDocument([FromForm] DocumentDTO request) {
 
-            if (request == null)
-            {
-                return BadRequest();
-            }
+             if (request == null)
+        {
+            return BadRequest("Request or file is missing.");
+        }
             try
             {
                 var result = await _dsv.addDocument(request);
@@ -78,6 +78,62 @@ namespace FlightDocs.Controllers
 
         }
 
+        [HttpPut("update-doc")]
+        public async Task<IActionResult> updateDocument([FromForm] DocumentUpdateDTO request)
+        {
+
+            if (request == null)
+            {
+                return BadRequest("Request or file is missing.");
+            }
+            try
+            {
+                var result = await _dsv.updateDocument(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
+            }
+
+        }
+
+        [HttpGet("download/{id}")]
+        public async Task<IActionResult> DownloadDocument(Guid id)
+        {
+            try
+            {
+                // Gọi service để xử lý tải file
+                var fileResult = await _dsv.DownloadDocument(id);
+                return fileResult; // Trả về file kết quả
+            }
+            catch (FileNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+        [HttpGet("DocumentDetail/{id}")]
+        public async Task<IActionResult> GetDocumentDetail(Guid docId)
+        {
+            try
+            {
+                var detail = await _dsv.getDocumentDetail(docId);
+                return Ok(detail);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
 
     }
