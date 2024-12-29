@@ -18,5 +18,9 @@ namespace FlightDocs.Repositories
 
         Task<Document> updateDocument(DocumentUpdateDTO dto);
 
+        Task<DocumentDetail> documentApproval(ApprovalDTO dto);
+
+        Task<List<Document>> getDocumentByAccount(Guid accountId, DateTime? startDate, DateTime? endDate);
+
     }
 }

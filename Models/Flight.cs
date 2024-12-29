@@ -10,9 +10,10 @@ namespace FlightDocs.Models
         public string pointOfLoading { get; set; } = string.Empty;
         public string pointOfUnloading { get; set; } = string.Empty;
         public DateTime departureDate { get; set; }
-        [JsonIgnore] 
-        
+        [JsonIgnore]
+
         public List<Document>? Document { get; set; }
+        [JsonIgnore]
         public List<Account>? Account { get; set; }
     }
 }

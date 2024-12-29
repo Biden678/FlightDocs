@@ -20,6 +20,8 @@ namespace FlightDocs.Services
 
         public DbSet<DocumentDetail> DocumentDetails { get; set; }
 
+        public DbSet<UpdatedVersion> UpdatedVersions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Document>()

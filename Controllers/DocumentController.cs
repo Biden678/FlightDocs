@@ -135,6 +135,42 @@ namespace FlightDocs.Controllers
             }
         }
 
+        [HttpPut("Approval")]
+        public async Task<IActionResult> ConfirmDocument(ApprovalDTO request)
+        {
+            try
+            {
+                var response = await _dsv.documentApproval(request);
+                return Ok(response);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("getDocumentByAccount")]
+        public async Task<IActionResult> getByAccount(Guid request, DateTime? startDate, DateTime? endDate)
+        {
+            try
+            {
+                var response = await _dsv.getDocumentByAccount(request, startDate, endDate);
+                return Ok(response);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
 
     }
 }

@@ -17,5 +17,6 @@ namespace FlightDocs.Models
         public DocumentDetail? DocumentDetail { get; set; }
         [JsonIgnore]
         public Flight? Flight { get; set; }
+        public List<UpdatedVersion> ? updatedVersion { get; set; }
     }
 }

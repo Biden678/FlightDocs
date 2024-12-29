@@ -1,6 +1,7 @@
 ﻿using FlightDocs.DTOs;
 using FlightDocs.Models;
 using FlightDocs.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlightDocs.Services
 {
@@ -10,6 +11,24 @@ namespace FlightDocs.Services
         public FlightService(DB db) {
             _db = db;
         }
+
+        public async Task<Flight> addFlightAccount(FlightAccountDTO dto)
+        {
+            var flight = await _db.Flights
+               .Where(t => t.flightNo.ToLower() == dto.flightNo.ToLower())
+               .Include(p => p.Account)
+               .FirstOrDefaultAsync();
+            if (flight == null)
+                return null;
+
+            var account = await _db.Accounts.FindAsync(dto.accId);
+            if (account == null)
+                return null;
+            flight?.Account?.Add(account);
+            await _db.SaveChangesAsync();
+            return flight;
+        }
+
         public async Task<Flight> addFlight(FlightDTO dto)
         {
             var Flight = new Flight

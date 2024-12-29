@@ -1,11 +1,8 @@
 ﻿namespace FlightDocs.DTOs
 {
-    public class DocumentUpdateDTO
+    public class ApprovalDTO
     {
-        public IFormFile? Name { get; set; }
         public Guid DocumentId { get; set; }
-        //public Guid TypeId { get; set; }
         public Guid GroupId { get; set; }
-
     }
 }

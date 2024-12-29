@@ -3,8 +3,8 @@ using FlightDocs.Models;
 using FlightDocs.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.IO.Compression;
-
 namespace FlightDocs.Services
 {
     public class DocumentService : IDocument
@@ -160,12 +160,56 @@ namespace FlightDocs.Services
 
         public async Task<Document> updateDocument(DocumentUpdateDTO dto)
         {
+          
+
             // Tìm tài liệu cần cập nhật
             var document = await _db.Documents.FindAsync(dto.DocumentId);
             if (document == null)
             {
                 throw new ArgumentException("Document not found.");
             }
+            var documentDetail = await _db.DocumentDetails.FirstOrDefaultAsync(s => s.DocId == document.Id);
+            if (documentDetail?.status == 1) {
+                throw new ArgumentException("The document has already been confirmed and can no longer be modified.");
+            }
+
+            //
+            var documentType = await _db.DocumentTypes
+            .Include(dt => dt.Permission) // Bao gồm cả danh sách quyền liên kết
+            .Where(dt => dt.Document.Any(d => d.Id ==document.Id))
+            .FirstOrDefaultAsync();
+
+            if (documentType == null)
+            {
+                throw new ArgumentException("Document type not found.");
+            }
+            //
+            // Lấy danh sách permission liên kết với DocumentType
+            var permissions = documentType.Permission;
+
+            if (permissions == null || !permissions.Any())
+            {
+                throw new UnauthorizedAccessException("No permissions found for this document type.");
+            }
+
+            // Kiểm tra groupId của user với các permissions
+            var userPermission = permissions
+                .Where(p => p.GroupId == dto.GroupId)
+                .FirstOrDefault();
+
+            //if (userPermission == null || string.IsNullOrEmpty(userPermission.function))
+            //{
+            //    throw new UnauthorizedAccessException("User does not have permission for this document type.");
+            //}
+
+            // Kiểm tra function
+            if (!userPermission.function.Contains("Modify", StringComparison.OrdinalIgnoreCase)
+                || !userPermission.function.Contains("Approval", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new UnauthorizedAccessException("User does not have modify permission for this document.");
+            }
+
+            //
             if (dto.Name != null)
             {
                 
@@ -186,6 +230,23 @@ namespace FlightDocs.Services
 
                 // Cập nhật tên file mới trong database
                 document.Name = fileName;
+                    // Tăng version
+                    documentDetail.version = Math.Round(documentDetail.version + 0.1, 1);
+                    documentDetail.updatedAt = DateTime.UtcNow;
+                    // Cập nhật DocumentDetail trong database
+                    _db.DocumentDetails.Update(documentDetail);
+
+                var updatedVersion = new UpdatedVersion
+                {
+                    Id = Guid.NewGuid(),
+                    DocumentId = document.Id,
+                    Version = documentDetail.version,
+                    updatedAt = DateTime.UtcNow,
+                    groupId = dto.GroupId,
+                    Name = document.Name
+                };
+
+                await _db.UpdatedVersions.AddAsync(updatedVersion);
 
                 // Lưu tài liệu đã cập nhật vào database
                 _db.Documents.Update(document);
@@ -193,6 +254,96 @@ namespace FlightDocs.Services
             }
 
             return document;
+        }
+
+        public async Task<DocumentDetail> documentApproval(ApprovalDTO dto)
+        {
+            var documentDetail = await _db.DocumentDetails.FirstOrDefaultAsync(s => s.DocId == dto.DocumentId);
+            if (documentDetail == null)
+            {
+                throw new ArgumentException("Document not found.");
+            }
+            if (documentDetail.status != 0)
+            {
+                throw new ArgumentException("Document has already been confirmed");
+            }
+
+            var documentType = await _db.DocumentTypes
+.Include(dt => dt.Permission) // Bao gồm cả danh sách quyền liên kết
+.Where(dt => dt.Document.Any(d => d.Id == dto.DocumentId))
+.FirstOrDefaultAsync();
+
+            if (documentType == null)
+            {
+                throw new ArgumentException("Document type not found.");
+            }
+            //
+            // Lấy danh sách permission liên kết với DocumentType
+            var permissions = documentType.Permission;
+
+            if (permissions == null || !permissions.Any())
+            {
+                throw new UnauthorizedAccessException("No permissions found for this document type.");
+            }
+
+            // Kiểm tra groupId của user với các permissions
+            var userPermission = permissions
+                .Where(p => p.GroupId == dto.GroupId)
+                .FirstOrDefault();
+
+            // Kiểm tra function
+            if (!userPermission.function.Contains("Approval", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new UnauthorizedAccessException("User does not have modify permission for this document.");
+            }
+
+            documentDetail.status = 1;
+            _db.DocumentDetails.Update(documentDetail);
+            await _db.SaveChangesAsync();
+            return documentDetail;
+        }
+
+        public async Task<List<Document>> getDocumentByAccount(Guid accountId, DateTime? startDate, DateTime? endDate)
+        {
+            // Lấy danh sách các chuyến bay mà accountId được phân công
+            var flightNos = await _db.Flights
+                .Where(f => f.Account.Any(a => a.Id == accountId))  // Lọc theo accountId
+                .Select(f => f.flightNo)  // Lấy flightNo của các chuyến bay
+                .ToListAsync();
+
+            if (flightNos == null || flightNos.Count == 0)
+            {
+                throw new ArgumentException("No flights found for the account");
+            }
+
+            // Lọc tài liệu theo flightNo từ danh sách flightNos và lọc theo ngày (startDate và endDate)
+            var documentsQuery = _db.Documents
+                .Where(d => flightNos.Contains(d.flightNo));  // So sánh flightNo với danh sách flightNos
+
+            // Lọc thêm theo ngày nếu có
+            if (startDate.HasValue)
+            {
+               
+                documentsQuery = documentsQuery.Where(d =>
+                    d.Flight.departureDate.Date >= startDate.Value.Date);
+            }
+
+            if (endDate.HasValue)
+            {
+                
+                documentsQuery = documentsQuery.Where(d =>
+                    d.Flight.departureDate.Date <= endDate.Value.Date);
+            }
+
+ 
+            var documents = await documentsQuery.ToListAsync();
+
+            if (documents == null || documents.Count == 0)
+            {
+                throw new ArgumentException("No documents found for the assigned flights");
+            }
+
+            return documents;  
         }
     }
 }

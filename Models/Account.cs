@@ -14,6 +14,7 @@ namespace FlightDocs.Models
         [JsonIgnore]
         public Group ? Group { get; set; }
         public Guid groupId { get; set; }
+        [JsonIgnore]
         public List<Flight>? Flight { get; set; }
     }
 }

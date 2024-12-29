@@ -90,6 +90,22 @@
   },
   {
     "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "ConfirmDocument",
+    "RelativePath": "api/Document/Approval",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FlightDocs.DTOs.ApprovalDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
     "Method": "GetDocumentDetail",
     "RelativePath": "api/Document/DocumentDetail/{id}",
     "HttpMethod": "GET",
@@ -127,6 +143,32 @@
   },
   {
     "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "getByAccount",
+    "RelativePath": "api/Document/getDocumentByAccount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
     "Method": "AddTypePermisison",
     "RelativePath": "api/Document/type-addpermission",
     "HttpMethod": "POST",
@@ -158,6 +200,11 @@
         "Name": "DocumentId",
         "Type": "System.Guid",
         "IsRequired": false
+      },
+      {
+        "Name": "GroupId",
+        "Type": "System.Guid",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -165,7 +212,7 @@
   {
     "ContainingType": "FlightDocs.Controllers.FlightController",
     "Method": "Add",
-    "RelativePath": "api/Flight",
+    "RelativePath": "api/Flight/add-flight",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -173,6 +220,22 @@
       {
         "Name": "request",
         "Type": "FlightDocs.DTOs.FlightDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.FlightController",
+    "Method": "AddFlightAccount",
+    "RelativePath": "api/Flight/add-flightAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FlightDocs.DTOs.FlightAccountDTO",
         "IsRequired": true
       }
     ],

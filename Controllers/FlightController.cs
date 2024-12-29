@@ -32,7 +32,29 @@ namespace FlightDocs.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
 
             }
+        }
+
+            [HttpPost("add-flightAccount")]
+            public async Task<IActionResult> AddFlightAccount(FlightAccountDTO request)
+            {
+                if (request == null)
+                {
+                    return BadRequest();
+                }
+
+                try
+                {
+                    var result = await _fsv.addFlightAccount(request);
+                    return Ok(result);
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, $"Internal server error: {ex.Message}");
+
+                }
+
+            }
 
         }
     }
-}
+
