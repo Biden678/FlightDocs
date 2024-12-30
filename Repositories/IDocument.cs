@@ -6,13 +6,15 @@ namespace FlightDocs.Repositories
 {
     public interface IDocument
     {
-        Task<DocumentType> addType(DocumentType type);
+        Task<DocumentType> addType(TypeDTO dto);
         //
         Task<DocumentType> addTypePermission(PermissionTypeDTO dto);
 
         Task<Document> addDocument(DocumentDTO dto);
 
         Task<FileResult> DownloadDocument(Guid documentId);
+
+        Task<FileResult> DownloadDocuments(List<Guid> documentId);
 
         Task<DocumentDetailDTO> getDocumentDetail(Guid documentId);
 
@@ -22,5 +24,6 @@ namespace FlightDocs.Repositories
 
         Task<List<Document>> getDocumentByAccount(Guid accountId, DateTime? startDate, DateTime? endDate);
 
+        Task<Document> getVersionDocument(Guid documentId);
     }
 }

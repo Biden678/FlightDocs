@@ -20,7 +20,7 @@ namespace FlightDocs.Controllers
             _db = db;
         }
         [HttpPost("add-type")]
-        public async Task<IActionResult> AddDocumentType(DocumentType request)
+        public async Task<IActionResult> AddDocumentType(TypeDTO request)
         {
             if (request == null )
             {
@@ -117,6 +117,27 @@ namespace FlightDocs.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpPost("downloadDocuments")]
+        public async Task<IActionResult> DownloadDocuments([FromBody] List<Guid> documentIds)
+        {
+            if (documentIds == null || documentIds.Count == 0)
+            {
+                return BadRequest("No document IDs provided.");
+            }
+
+            try
+            {
+                var fileResult = await _dsv.DownloadDocuments(documentIds);
+                return fileResult;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
         [HttpGet("DocumentDetail/{id}")]
         public async Task<IActionResult> GetDocumentDetail(Guid docId)
         {
@@ -154,11 +175,29 @@ namespace FlightDocs.Controllers
         }
 
         [HttpGet("getDocumentByAccount")]
-        public async Task<IActionResult> getByAccount(Guid request, DateTime? startDate, DateTime? endDate)
+        public async Task<IActionResult> getByAccount(Guid accountId, DateTime? startDate, DateTime? endDate)
         {
             try
             {
-                var response = await _dsv.getDocumentByAccount(request, startDate, endDate);
+                var response = await _dsv.getDocumentByAccount(accountId, startDate, endDate);
+                return Ok(response);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("getDocumentVersion")]
+        public async Task<IActionResult> getDocumentVersion(Guid documentId)
+        {
+            try
+            {
+                var response = await _dsv.getVersionDocument(documentId);
                 return Ok(response);
             }
             catch (KeyNotFoundException ex)

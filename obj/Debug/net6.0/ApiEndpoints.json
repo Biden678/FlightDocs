@@ -82,7 +82,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "FlightDocs.Models.DocumentType",
+        "Type": "FlightDocs.DTOs.TypeDTO",
         "IsRequired": true
       }
     ],
@@ -143,6 +143,22 @@
   },
   {
     "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "DownloadDocuments",
+    "RelativePath": "api/Document/downloadDocuments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
     "Method": "getByAccount",
     "RelativePath": "api/Document/getDocumentByAccount",
     "HttpMethod": "GET",
@@ -150,7 +166,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
+        "Name": "accountId",
         "Type": "System.Guid",
         "IsRequired": false
       },
@@ -162,6 +178,22 @@
       {
         "Name": "endDate",
         "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FlightDocs.Controllers.DocumentController",
+    "Method": "getDocumentVersion",
+    "RelativePath": "api/Document/getDocumentVersion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentId",
+        "Type": "System.Guid",
         "IsRequired": false
       }
     ],

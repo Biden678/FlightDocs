@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\controllers\\documentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:controllers\\documentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\services\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:services\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\controllers\\documentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:controllers\\documentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\dtos\\typedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:dtos\\typedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\repositories\\idocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:repositories\\idocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\updatedversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\updatedversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\dtos\\flightaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:dtos\\flightaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\repositories\\iflight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,18 +83,6 @@
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:dtos\\documentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\updatedversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\updatedversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Migrations\\20241229145457_fd7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241229145457_fd7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\documentdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\documentdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -95,12 +99,12 @@
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:migrations\\20241225190657_f6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\models\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:models\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\services\\db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:services\\db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|c:\\users\\admin\\desktop\\flightdocs\\migrations\\20241229145457_fd7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD821FBD-50F0-45C8-934D-D3C8CE5B917D}|FlightDocs.csproj|solutionrelative:migrations\\20241229145457_fd7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,7 +114,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 26,
+          "SelectedChildIndex": 23,
           "Children": [
             {
               "$type": "Bookmark",
@@ -123,6 +127,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "TypeDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\TypeDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\TypeDTO.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\TypeDTO.cs",
+              "RelativeToolTip": "DTOs\\TypeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T09:12:27.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Flight.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\Flight.cs",
               "RelativeDocumentMoniker": "Models\\Flight.cs",
@@ -130,12 +147,11 @@
               "RelativeToolTip": "Models\\Flight.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T16:01:06.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T16:01:06.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "FlightController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Controllers\\FlightController.cs",
               "RelativeDocumentMoniker": "Controllers\\FlightController.cs",
@@ -143,12 +159,11 @@
               "RelativeToolTip": "Controllers\\FlightController.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAtwC4AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:57:10.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:57:10.712Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "IFlight.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Repositories\\IFlight.cs",
               "RelativeDocumentMoniker": "Repositories\\IFlight.cs",
@@ -156,12 +171,11 @@
               "RelativeToolTip": "Repositories\\IFlight.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAEwAkAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:52:18.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:52:18.476Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "FlightService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Services\\FlightService.cs",
               "RelativeDocumentMoniker": "Services\\FlightService.cs",
@@ -169,25 +183,24 @@
               "RelativeToolTip": "Services\\FlightService.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:52:10.911Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:52:10.911Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "AccountService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Services\\AccountService.cs",
               "RelativeDocumentMoniker": "Services\\AccountService.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Services\\AccountService.cs",
               "RelativeToolTip": "Services\\AccountService.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T15:51:56.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "FlightAccountDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\FlightAccountDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\FlightAccountDTO.cs",
@@ -195,12 +208,11 @@
               "RelativeToolTip": "DTOs\\FlightAccountDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:50:24.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:50:24.247Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "ApprovalDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\ApprovalDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\ApprovalDTO.cs",
@@ -208,12 +220,11 @@
               "RelativeToolTip": "DTOs\\ApprovalDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:27:16.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:27:16.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "DocumentDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\DocumentDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\DocumentDTO.cs",
@@ -221,12 +232,11 @@
               "RelativeToolTip": "DTOs\\DocumentDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:26:55.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:26:55.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "DocumentUpdateDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\DocumentUpdateDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\DocumentUpdateDTO.cs",
@@ -234,12 +244,11 @@
               "RelativeToolTip": "DTOs\\DocumentUpdateDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T15:26:33.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T15:26:33.764Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "20241229145457_fd7.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Migrations\\20241229145457_fd7.cs",
               "RelativeDocumentMoniker": "Migrations\\20241229145457_fd7.cs",
@@ -247,25 +256,24 @@
               "RelativeToolTip": "Migrations\\20241229145457_fd7.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:54:58.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:54:58.107Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 5,
               "Title": "Permission.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\Permission.cs",
               "RelativeDocumentMoniker": "Models\\Permission.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\Permission.cs",
               "RelativeToolTip": "Models\\Permission.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:54:44.522Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "DBModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Migrations\\DBModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\DBModelSnapshot.cs",
@@ -273,12 +281,11 @@
               "RelativeToolTip": "Migrations\\DBModelSnapshot.cs",
               "ViewState": "AgIAAFcBAAAAAAAAAAAQwGgBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:52:14.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:52:14.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "20241229145202_fd7.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Migrations\\20241229145202_fd7.cs",
               "RelativeDocumentMoniker": "Migrations\\20241229145202_fd7.cs",
@@ -286,12 +293,11 @@
               "RelativeToolTip": "Migrations\\20241229145202_fd7.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:52:02.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:52:02.236Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "20241225190657_f6.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Migrations\\20241225190657_f6.cs",
               "RelativeDocumentMoniker": "Migrations\\20241225190657_f6.cs",
@@ -299,25 +305,24 @@
               "RelativeToolTip": "Migrations\\20241225190657_f6.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:51:35.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:51:35.981Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 2,
               "Title": "DocumentType.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\DocumentType.cs",
               "RelativeDocumentMoniker": "Models\\DocumentType.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\DocumentType.cs",
               "RelativeToolTip": "Models\\DocumentType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:50:58.498Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "PermissionTypeDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\PermissionTypeDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\PermissionTypeDTO.cs",
@@ -325,8 +330,7 @@
               "RelativeToolTip": "DTOs\\PermissionTypeDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:49:55.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:49:55.648Z"
             },
             {
               "$type": "Document",
@@ -338,12 +342,11 @@
               "RelativeToolTip": "Services\\DB.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAlwBYAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:07:00.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:07:00.289Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Account.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\Account.cs",
               "RelativeDocumentMoniker": "Models\\Account.cs",
@@ -351,51 +354,50 @@
               "RelativeToolTip": "Models\\Account.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T14:17:07.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T14:17:07.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 8,
               "Title": "UpdatedVersion.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\UpdatedVersion.cs",
               "RelativeDocumentMoniker": "Models\\UpdatedVersion.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\UpdatedVersion.cs",
               "RelativeToolTip": "Models\\UpdatedVersion.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:15:17.42Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Document.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\Document.cs",
               "RelativeDocumentMoniker": "Models\\Document.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\Document.cs",
               "RelativeToolTip": "Models\\Document.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAADwvxQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwBQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:03:19.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DocumentController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Controllers\\DocumentController.cs",
               "RelativeDocumentMoniker": "Controllers\\DocumentController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Controllers\\DocumentController.cs",
               "RelativeToolTip": "Controllers\\DocumentController.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAAAKMAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAIA+wIEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T13:49:37.514Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "DocumentDetail.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Models\\DocumentDetail.cs",
               "RelativeDocumentMoniker": "Models\\DocumentDetail.cs",
@@ -403,25 +405,24 @@
               "RelativeToolTip": "Models\\DocumentDetail.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T13:45:08.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T13:45:08.456Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IDocument.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Repositories\\IDocument.cs",
               "RelativeDocumentMoniker": "Repositories\\IDocument.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Repositories\\IDocument.cs",
               "RelativeToolTip": "Repositories\\IDocument.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADgvxYAAABoAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T13:36:58.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "DocumentDetailDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\DTOs\\DocumentDetailDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\DocumentDetailDTO.cs",
@@ -429,18 +430,17 @@
               "RelativeToolTip": "DTOs\\DocumentDetailDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T13:36:37.283Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T13:36:37.283Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DocumentService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Services\\DocumentService.cs",
               "RelativeDocumentMoniker": "Services\\DocumentService.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FlightDocs\\Services\\DocumentService.cs",
               "RelativeToolTip": "Services\\DocumentService.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAYwEABAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAP0AAAAAAAAAAAAhwAcBAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T08:27:26.011Z",
               "EditorCaption": ""

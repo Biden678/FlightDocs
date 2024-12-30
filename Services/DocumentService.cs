@@ -54,7 +54,7 @@ namespace FlightDocs.Services
 
             // Lưu đối tượng Document trước
             await _db.Documents.AddAsync(document);
-            await _db.SaveChangesAsync(); 
+            await _db.SaveChangesAsync();
 
             // Tạo đối tượng DocumentDetail
             var newDetail = new DocumentDetail
@@ -87,7 +87,17 @@ namespace FlightDocs.Services
             {
                 throw new FileNotFoundException("File not found on server.");
             }
-
+            var fileInfo = new FileInfo(filePath);
+            if (fileInfo.Length > 20 * 1024 * 1024) // 20MB
+            {
+                throw new InvalidOperationException("File size exceeds the 20MB limit.");
+            }
+            var allowedExtensions = new[] { ".pdf", ".jpg", ".jpeg", ".png" };
+            var fileExtension = Path.GetExtension(filePath).ToLower();
+            if (!allowedExtensions.Contains(fileExtension))
+            {
+                throw new InvalidOperationException("Invalid file type. Only PDF and image files are allowed.");
+            }
             // Tạo tệp ZIP trong bộ nhớ
             using var memoryStream = new MemoryStream();
             using (var zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create, leaveOpen: true))
@@ -110,11 +120,58 @@ namespace FlightDocs.Services
             };
         }
 
+        public async Task<FileResult> DownloadDocuments(List<Guid> documentIds)
+        {
+            try
+            {
+                // Tạo tệp ZIP trong bộ nhớ
+                using var memoryStream = new MemoryStream();
+                using (var zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create, leaveOpen: true))
+                {
+                    foreach (var documentId in documentIds)
+                    {
+                        // Tìm tài liệu theo ID
+                        var document = await _db.Documents.FindAsync(documentId);
+                        if (document != null)
+                        {
+                            var filePath = Path.Combine(_uploadFolder, document.Name);
+                            if (System.IO.File.Exists(filePath))
+                            {
+                                // Thêm từng tài liệu vào ZIP
+                                var entry = zipArchive.CreateEntry(document.Name, CompressionLevel.Fastest);
+                                using var originalFileStream = new FileStream(filePath, FileMode.Open);
+                                using var zipEntryStream = entry.Open();
+                                await originalFileStream.CopyToAsync(zipEntryStream);
+                            }
+                        }
+                    }
+                }
+
+                memoryStream.Position = 0; // Đặt lại vị trí đầu stream
+
+                // Trả ZIP về client
+                var zipFileName = "documents.zip";
+                var contentType = "application/zip";
+                return new FileContentResult(memoryStream.ToArray(), contentType)
+                {
+                    FileDownloadName = zipFileName
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to create ZIP file: {ex.Message}");
+            }
+        }
+
 
         //
-        public async Task<DocumentType> addType(DocumentType type)
+        public async Task<DocumentType> addType(TypeDTO dto)
         {
-            type.Id = Guid.NewGuid();
+            var type = new DocumentType
+            {
+                Id = Guid.NewGuid(),
+                Type = dto.typeName
+            };
             await _db.DocumentTypes.AddAsync(type);
             await _db.SaveChangesAsync();
             return type;
@@ -141,10 +198,10 @@ namespace FlightDocs.Services
         public async Task<DocumentDetailDTO> getDocumentDetail(Guid documentId)
         {
             var document = await _db.Documents.FindAsync(documentId);
-            if (document==null) { throw new KeyNotFoundException($"DocumentDetail for Document ID {documentId} not found."); }
+            if (document == null) { throw new KeyNotFoundException($"DocumentDetail for Document ID {documentId} not found."); }
 
-              var documentDetail = await _db.DocumentDetails
-            .FirstOrDefaultAsync(d => d.DocId == documentId);
+            var documentDetail = await _db.DocumentDetails
+          .FirstOrDefaultAsync(d => d.DocId == documentId);
 
             return new DocumentDetailDTO
             {
@@ -160,7 +217,7 @@ namespace FlightDocs.Services
 
         public async Task<Document> updateDocument(DocumentUpdateDTO dto)
         {
-          
+
 
             // Tìm tài liệu cần cập nhật
             var document = await _db.Documents.FindAsync(dto.DocumentId);
@@ -169,14 +226,15 @@ namespace FlightDocs.Services
                 throw new ArgumentException("Document not found.");
             }
             var documentDetail = await _db.DocumentDetails.FirstOrDefaultAsync(s => s.DocId == document.Id);
-            if (documentDetail?.status == 1) {
+            if (documentDetail?.status == 1)
+            {
                 throw new ArgumentException("The document has already been confirmed and can no longer be modified.");
             }
 
             //
             var documentType = await _db.DocumentTypes
             .Include(dt => dt.Permission) // Bao gồm cả danh sách quyền liên kết
-            .Where(dt => dt.Document.Any(d => d.Id ==document.Id))
+            .Where(dt => dt.Document.Any(d => d.Id == document.Id))
             .FirstOrDefaultAsync();
 
             if (documentType == null)
@@ -203,8 +261,7 @@ namespace FlightDocs.Services
             //}
 
             // Kiểm tra function
-            if (!userPermission.function.Contains("Modify", StringComparison.OrdinalIgnoreCase)
-                || !userPermission.function.Contains("Approval", StringComparison.OrdinalIgnoreCase))
+            if (userPermission.function.Contains("Read", StringComparison.OrdinalIgnoreCase))
             {
                 throw new UnauthorizedAccessException("User does not have modify permission for this document.");
             }
@@ -212,7 +269,17 @@ namespace FlightDocs.Services
             //
             if (dto.Name != null)
             {
-                
+                if (dto.Name.Length > 20 * 1024 * 1024) // 20MB
+                {
+                    throw new InvalidOperationException("File size exceeds the 20MB limit.");
+                }
+
+                var allowedExtensions = new[] { ".pdf", ".jpg", ".jpeg", ".png" };
+                var fileExtension = Path.GetExtension(dto.Name.FileName).ToLower();
+                if (!allowedExtensions.Contains(fileExtension))
+                {
+                    throw new InvalidOperationException("Invalid file type. Only PDF and image files are allowed.");
+                }
                 var oldFilePath = Path.Combine(_uploadFolder, document.Name);
                 if (File.Exists(oldFilePath))
                 {
@@ -230,11 +297,11 @@ namespace FlightDocs.Services
 
                 // Cập nhật tên file mới trong database
                 document.Name = fileName;
-                    // Tăng version
-                    documentDetail.version = Math.Round(documentDetail.version + 0.1, 1);
-                    documentDetail.updatedAt = DateTime.UtcNow;
-                    // Cập nhật DocumentDetail trong database
-                    _db.DocumentDetails.Update(documentDetail);
+                // Tăng version
+                documentDetail.version = Math.Round(documentDetail.version + 0.1, 1);
+                documentDetail.updatedAt = DateTime.UtcNow;
+                // Cập nhật DocumentDetail trong database
+                _db.DocumentDetails.Update(documentDetail);
 
                 var updatedVersion = new UpdatedVersion
                 {
@@ -269,9 +336,9 @@ namespace FlightDocs.Services
             }
 
             var documentType = await _db.DocumentTypes
-.Include(dt => dt.Permission) // Bao gồm cả danh sách quyền liên kết
-.Where(dt => dt.Document.Any(d => d.Id == dto.DocumentId))
-.FirstOrDefaultAsync();
+                .Include(dt => dt.Permission) // Bao gồm cả danh sách quyền liên kết
+                .Where(dt => dt.Document.Any(d => d.Id == dto.DocumentId))
+                .FirstOrDefaultAsync();
 
             if (documentType == null)
             {
@@ -323,19 +390,19 @@ namespace FlightDocs.Services
             // Lọc thêm theo ngày nếu có
             if (startDate.HasValue)
             {
-               
+
                 documentsQuery = documentsQuery.Where(d =>
                     d.Flight.departureDate.Date >= startDate.Value.Date);
             }
 
             if (endDate.HasValue)
             {
-                
+
                 documentsQuery = documentsQuery.Where(d =>
                     d.Flight.departureDate.Date <= endDate.Value.Date);
             }
 
- 
+
             var documents = await documentsQuery.ToListAsync();
 
             if (documents == null || documents.Count == 0)
@@ -343,7 +410,23 @@ namespace FlightDocs.Services
                 throw new ArgumentException("No documents found for the assigned flights");
             }
 
-            return documents;  
+            return documents;
+        }
+
+        public async Task<Document> getVersionDocument(Guid documentId)
+        {
+            // Tìm tài liệu và bao gồm các phiên bản (UpdatedVersions) liên quan
+            var document = await _db.Documents
+                .Include(d => d.updatedVersion) // Bao gồm các phiên bản liên quan đến tài liệu
+                .Where(d => d.Id == documentId) // Tìm tài liệu theo DocumentId
+                .FirstOrDefaultAsync(); // Lấy tài liệu đầu tiên (hoặc null nếu không tìm thấy)
+
+            if (document == null)
+            {
+                throw new ArgumentException("Document not found!");
+            }
+
+            return document;
         }
     }
 }
